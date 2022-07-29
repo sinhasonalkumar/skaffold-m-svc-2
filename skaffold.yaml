@@ -8,16 +8,18 @@ build:
     docker:
       dockerfile: Dockerfile
 deploy:
-  kubectl:
-    manifests:
-    - ./k8s/deployment.yaml
-  # helm:
-  #   releases:
-  #   - name: m-svc-2
-  #     remoteChart: sonal-github-helm-repo/micro-svc-helm-chart
-  #     valuesFiles:
-  #     - '../skaffold-k8s-state/helm-values/m-svc-2/local/values.yaml'
-  #     artifactOverrides:
-  #       image: m-svc-2-image
-  #     imageStrategy:
-  #       helm: {}  
+  # kubectl:
+  #   manifests:
+  #   - ./k8s/deployment.yaml
+  helm:
+    releases:
+    - name: m-svc-2
+      #remoteChart: sonal-ms-github-helm-repo/micro-svc-helm-chart
+      #version: 0.6.0
+      chartPath: './micro-svc-helm-chart/'
+      valuesFiles:
+      - '../skaffold-k8s-state/helm-values/m-svc-2/local/values.yaml'
+      artifactOverrides:
+        container.image: m-svc-2-image
+      imageStrategy:
+        fqn: {}

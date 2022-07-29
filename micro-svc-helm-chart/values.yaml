@@ -1,0 +1,11 @@
+applicationName: demo-micro-svc
+replicaCount: 6
+
+container:
+ port: 80
+ imagePullPolicy: Always
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+ 
