@@ -1,0 +1,23 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: m-svc-1
+build:
+  artifacts:
+  - image: m-svc-1-image
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  # kubectl:
+  #   manifests:
+  #   - ./k8s/deployment.yaml
+  helm:
+    releases:
+    - name: m-svc-1
+      remoteChart: sonal-github-helm-repo/micro-svc-helm-chart
+      valuesFiles:
+      - '../skaffold-k8s-state/helm-values/m-svc-1/local/values.yaml'
+      artifactOverrides:
+        image: m-svc-1-image
+      imageStrategy:
+        helm: {}  
