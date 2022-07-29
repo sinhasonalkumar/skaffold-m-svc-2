@@ -13,6 +13,6 @@ public class HelloMSvc2Controller {
 	@GetMapping
 	public Mono<String> helloMSvc1() {
 		
-		return Mono.just("Hello World Helm");
+		return Mono.just("Hello From Micro Service 2");
 	}
 }
