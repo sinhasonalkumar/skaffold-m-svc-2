@@ -9,6 +9,6 @@ import lombok.Data;
 @Configuration
 public class GreetingsConfig {
 
-	@Value("${com.sonal.skaffold.demo.msvc1.greetings.message}")
+	@Value("${com.sonal.skaffold.demo.msvc1.greetings.message:TestMessage}")
 	private String greetingsMessage;
 }
