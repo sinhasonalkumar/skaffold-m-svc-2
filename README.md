@@ -6,5 +6,5 @@
 
 ### Add under-noted environment variable to load properties file in spring application context
 
-spring.config.location=../skaffold-m-svc-config/m-svc-2/
+spring.config.location=../skaffold-m-svc-config/m-svc-2/app/defaults/,../skaffold-m-svc-config/m-svc-2/app/overrides/
 spring.profiles.active=local
