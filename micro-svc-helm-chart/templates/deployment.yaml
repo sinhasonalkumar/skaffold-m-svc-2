@@ -22,3 +22,21 @@ spec:
             - name: http
               containerPort: {{ .Values.container.port }}
               protocol: TCP
+          env:
+          - name: "spring.config.location"
+            value: "/config/"
+          - name: "spring.profiles.active"
+            value: "local"  
+          volumeMounts:
+          - name: config-vol
+            mountPath: "/config"
+            readOnly: true    
+      volumes:
+        - name: config-vol
+          configMap:
+            name: m-svc-2-cm
+            items:
+            - key: "application.properties"
+              path: "application.properties"
+            - key: "application-local.properties"
+              path: "application-local.properties"    

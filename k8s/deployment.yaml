@@ -46,7 +46,7 @@ spec:
       volumes:
       - name: config-vol
         configMap:
-          name: m-svc-1-cm
+          name: m-svc-2-cm
           items:
           - key: "application.properties"
             path: "application.properties"
@@ -56,7 +56,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name:  m-svc-1-cm
+  name:  m-svc-2-cm
 data:
   # spring application configs
   application.properties: |
